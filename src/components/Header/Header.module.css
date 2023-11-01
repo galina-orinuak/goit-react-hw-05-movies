@@ -1,0 +1,17 @@
+.header {
+    background-color: aqua;
+    display: flex;
+    gap: 20px;
+}
+
+.headerIcon {
+    width: 200px;
+    height: 100px;
+    color: black;
+}
+
+.headerLink {
+    text-decoration: none;
+    color: black;
+
+}
