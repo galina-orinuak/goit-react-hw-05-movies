@@ -1,0 +1,25 @@
+.cast {
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 15px;
+
+
+}
+
+.rewievs {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cast:focus{
+ font-weight: 600;
+ color: black;
+
+}
+
+
+.rewievs:focus{
+    font-weight: 600;
+    color: black;
+   
+   }

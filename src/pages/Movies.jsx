@@ -1,7 +1,7 @@
 import { SearchingForm } from "components/SearchingForm/SearchingForm";
 import { Title } from "components/Title/Title";
 import { useState, useEffect } from "react";
-import { findMovie } from "components/Api";
+import { findMovie } from "service/Api";
 import { MoviesLayout } from "components/MoviesLayout/MoviesLayout";
 import { Loader } from "components/Loader/Loader";
 import { useSearchParams } from "react-router-dom";

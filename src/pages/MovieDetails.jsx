@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMovieById } from 'components/Api';
+import { getMovieById } from 'service/Api';
 import { MovieCard } from 'components/MovieCard/MovieCard';
 import { Loader } from 'components/Loader/Loader';
 

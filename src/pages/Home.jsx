@@ -1,4 +1,4 @@
-import { getPopularMovies } from 'components/Api';
+import { getPopularMovies } from 'service/Api';
 import { MoviesLayout } from 'components/MoviesLayout/MoviesLayout';
 import { Title } from 'components/Title/Title';
 import { useEffect, useState } from 'react';

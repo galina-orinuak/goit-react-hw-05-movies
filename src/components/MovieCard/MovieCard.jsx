@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { Location } from "react-router-dom";
+import styles from './MovieCard.module.css'
 
 
 export const MovieCard =({movieInfo})=>{
@@ -34,8 +35,8 @@ const backLInkHref = useRef(location.state?.from ?? '/')
             <p>{genres}</p>
             <div>
                <h2>Additional information</h2>
-               <NavLink to={`/movies/${movieInfo.id}/cast`}>Casts</NavLink>
-               <NavLink to={`/movies/${movieInfo.id}/reviews`}>Reviews</NavLink>
+               <NavLink to={`/movies/${movieInfo.id}/cast`} className={styles.cast}>Casts</NavLink>
+               <NavLink to={`/movies/${movieInfo.id}/reviews`} className={styles.rewievs}>Reviews</NavLink>
             </div>
             <Outlet/>
         </div>

@@ -1,7 +1,8 @@
-import { getMovieCast } from 'components/Api';
+import { getMovieCast } from 'service/Api';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Loader } from "components/Loader/Loader";
+import styles from './Cast.module.css'
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -21,7 +22,7 @@ const Cast = () => {
          {!showLoader &&  <Loader/>}
       {!cast && <p>there is no cast</p>}
       {cast && (
-        <ul>
+        <ul className={styles.cast}>
           {cast.map(actor => {
             return (
               <li key={actor.id}>
