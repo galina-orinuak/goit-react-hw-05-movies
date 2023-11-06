@@ -1,17 +1,36 @@
 .header {
-    background-color: aqua;
-    display: flex;
-    gap: 20px;
+  display: flex;
+  background-image: url(/src/images/movieImg.png);
+  background-size: 200px 200px;
+  background-repeat: no-repeat;
+  background-color: #dfdf49;
+  width: 2000px;
+  height: 200px;
 }
 
-.headerIcon {
-    width: 200px;
-    height: 100px;
-    color: black;
+.headerLinkHome {
+  text-decoration: none;
+  color: black;
 }
 
-.headerLink {
-    text-decoration: none;
-    color: black;
-
+.headerLinkMovies {
+  text-decoration: none;
+  color: black;
 }
+.headerNav {
+
+  display: flex;
+  margin: auto;
+  gap: 30px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.headerLinkHome:focus{
+  color: chocolate;
+}
+
+.headerLinkMovies:focus {
+  color: chocolate;
+}
+

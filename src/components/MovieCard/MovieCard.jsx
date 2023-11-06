@@ -1,6 +1,16 @@
-export const MovieCard =({movieInfo})=>{
-    console.log('movieInfo', movieInfo)
+import { useRef } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { Location } from "react-router-dom";
 
+
+export const MovieCard =({movieInfo})=>{
+  
+const location = useLocation();
+const backLInkHref = useRef(location.state?.from ?? '/')
+
+
+    
     let nameOfMovie = null;
         if (movieInfo.title) {
           nameOfMovie = movieInfo.title;
@@ -12,7 +22,8 @@ export const MovieCard =({movieInfo})=>{
         let genres = movieInfo.genres.map(genre => genre.name).join(', ')
 
     return <><div>
-        <div><p>GO BACK</p></div>
+        <div>
+          <NavLink to={backLInkHref.current}>GO BACK</NavLink></div>
         <div><img srcSet={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`} alt="" /></div>
         <div>
             <h1>{nameOfMovie}</h1>
@@ -23,9 +34,10 @@ export const MovieCard =({movieInfo})=>{
             <p>{genres}</p>
             <div>
                <h2>Additional information</h2>
-               <p>Casts</p>
-               <p>Reviews</p>
+               <NavLink to={`/movies/${movieInfo.id}/cast`}>Casts</NavLink>
+               <NavLink to={`/movies/${movieInfo.id}/reviews`}>Reviews</NavLink>
             </div>
+            <Outlet/>
         </div>
     </div>
     </>

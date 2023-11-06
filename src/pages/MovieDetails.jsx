@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMovieById } from 'components/Api';
 import { MovieCard } from 'components/MovieCard/MovieCard';
+import { Loader } from 'components/Loader/Loader';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieInfo, setMovieInfo] = useState(null);
+  const [showLoader, setShowLoader] = useState(false);
 
   // useEffect(() => {
   //     const params = `movie/${movieId}`;
@@ -21,11 +23,16 @@ export const MovieDetails = () => {
   //   }, [movieId]);
 
   useEffect(() => {
+    setShowLoader(true);
     getMovieById(movieId).then(data => {
   
       setMovieInfo(data);
-    });
+    }).finally(()=> {setShowLoader(false)});
   }, [movieId]);
 
-  return <>{movieInfo && <MovieCard movieInfo={movieInfo} />}</>;
+  return <>
+  {!showLoader &&  <Loader/>}
+  {movieInfo && <MovieCard movieInfo={movieInfo} />}</>;
 };
+
+export  default MovieDetails;

@@ -1,4 +1,5 @@
 .galleryMovies {
+width: 2000px;
 display: flex;
 
 flex-wrap: wrap;
