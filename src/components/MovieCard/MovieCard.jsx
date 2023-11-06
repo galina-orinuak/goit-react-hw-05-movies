@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 // import { Location } from 'react-router-dom';
 import styles from './MovieCard.module.css';
+import {BsArrowLeftSquare} from "react-icons/bs";
 
 export const MovieCard = ({ movieInfo }) => {
   const location = useLocation();
@@ -22,7 +23,7 @@ export const MovieCard = ({ movieInfo }) => {
     <>
       <div className={styles.movieContainer}>
         <div>
-          <NavLink to={backLInkHref.current}>GO BACK</NavLink>
+          <NavLink to={backLInkHref.current} className={styles.goBack}><BsArrowLeftSquare className={styles.icon}/></NavLink>
         </div>
         <div className={styles.movieCard}>
           <div>
@@ -30,13 +31,14 @@ export const MovieCard = ({ movieInfo }) => {
             className={styles.movieCardImg}
               srcSet={`https://image.tmdb.org/t/p/w500${movieInfo.poster_path}`}
               alt=""
+
             />
           </div>
           <div className={styles.movieInfo}>
             <h1>{nameOfMovie}</h1>
             <p>User Score: {userScore}%</p>
-            <h2>Overwiev</h2>
-            <p>{movieInfo.overwiev}</p>
+            <h2>Overview</h2>
+            <p>{movieInfo.overview}</p>
             <h2>Genres</h2>
             <p>{genres}</p>
             </div>

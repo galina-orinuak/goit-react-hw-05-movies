@@ -31,6 +31,8 @@ const Cast = () => {
                     <img
                       srcSet={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
                       alt=""
+                      width= "300px"
+                      height= "450px"
                     />
                   </div>
                   <div>
