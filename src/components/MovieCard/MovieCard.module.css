@@ -23,3 +23,20 @@
     color: black;
    
    }
+
+   .movieContainer{
+    width: 2000px;
+    padding: 15px;
+   }
+
+   .movieCard {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+   }
+
+   .movieInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+   }
