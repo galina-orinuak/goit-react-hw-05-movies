@@ -9,30 +9,26 @@ const MovieDetails = () => {
   const [movieInfo, setMovieInfo] = useState(null);
   const [showLoader, setShowLoader] = useState(false);
 
-  // useEffect(() => {
-  //     const params = `movie/${movieId}`;
-  //     async function fetch() {
-  //       try {
-  //         const { data } = await getMovies(params);
-  //         setMovieInfo(data);
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-  //     }
-  //     fetch();
-  //   }, [movieId]);
-
   useEffect(() => {
     setShowLoader(true);
-    getMovieById(movieId).then(data => {
-  
-      setMovieInfo(data);
-    }).finally(()=> {setShowLoader(false)});
+    getMovieById(movieId)
+      .then(data => {
+        setMovieInfo(data);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => {
+        setShowLoader(false);
+      });
   }, [movieId]);
 
-  return <>
-  {!showLoader &&  <Loader/>}
-  {movieInfo && <MovieCard movieInfo={movieInfo} />}</>;
+  return (
+    <>
+      {!showLoader && <Loader />}
+      {movieInfo && <MovieCard movieInfo={movieInfo} />}
+    </>
+  );
 };
 
-export  default MovieDetails;
+export default MovieDetails;

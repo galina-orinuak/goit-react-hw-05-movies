@@ -12,14 +12,21 @@ const Home = () => {
 
   useEffect(() => {
     setShowLoader(true);
-    getPopularMovies().then(data => {
-      setArrayOfMovies(data.results);
-    }).finally(()=> {setShowLoader(false)});
+    getPopularMovies()
+      .then(data => {
+        setArrayOfMovies(data.results);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(() => {
+        setShowLoader(false);
+      });
   }, []);
 
   return (
     <>
-      {!showLoader &&  <Loader/>}
+      {!showLoader && <Loader />}
       {!arrayOfMovies && <p>NO RESULTS</p>}
       {arrayOfMovies && <Title text="Trending today" />}
       {arrayOfMovies && <MoviesLayout arrayOfMovies={arrayOfMovies} />}
